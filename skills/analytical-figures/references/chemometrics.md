@@ -75,7 +75,7 @@ baseline term, `b` is **not** a physical dilution factor (the constant column ea
 offset); use a *pure* reference with `poly_order=0` to recover a true factor. Leakage: a fixed
 (pure/external) reference is leak-free — apply before CV; the mean-reference variant is cross-sample,
 so refit per fold if used inside `cross_validate`. Validated bit-for-bit against the biospectools/
-Kohler gold (`skill_validation/chemometrics/test_emsc.py`).
+Kohler gold (upstream validation suite).
 
 ## The four diagnostic panels (`diagnostics_figure`)
 
@@ -138,7 +138,7 @@ in-control cluster + limit lines into the corner (the single-bad-spectrum case):
 the borderline/extreme points and the boundary legible. Keep the default `"linear"` for moderate
 spread (true linear boundary, easiest to read).
 
-Conventions (pinned, see `skill_validation/chemometrics/`): SD uses the singular-value normalization
+Conventions (pinned by the upstream validation suite): SD uses the singular-value normalization
 (DDSimca/mdatools; `sum(leverage)=A`); DoF are method-of-moments (ddof=1); limits fall back to χ²
 when `n−A≤0` and the Q test reports 0 ("uninformative") when there is no residual space (A≥rank).
 Every limit form is validated bit-for-bit against a hand-derived fixture + scipy, and the Hotelling
@@ -159,7 +159,7 @@ Cheap, defensible figures-of-merit for a SMALL calibration (e.g. 18 spectra):
 - **`rpd` / `rpiq`** — RPD = SD(ref)/RMSE (the one-number "is the calibration useful": >2 useful,
   >2.5 good, >3 excellent, Chang 2001); RPIQ = IQR/RMSE (robust to skew, ≈1.349·RPD for normal y).
 
-All validated in `skill_validation/chemometrics/test_trio.py` (the Nadeau–Bengio golden is
+All validated in the upstream validation suite (the Nadeau–Bengio golden is
 reproduced *through* the function).
 
 ## Dependency

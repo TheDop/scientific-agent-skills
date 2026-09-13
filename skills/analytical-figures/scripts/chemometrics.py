@@ -113,7 +113,7 @@ class Preprocessor:
     deviation (ddof=0), matching sklearn's StandardScaler and the `chemotools` library.
     R/prospectr use the sample SD (ddof=1) -- a constant sqrt(n/(n-1)) factor. The ddof=0
     choice is intentional and is locked by the chemometrics validation suite
-    (skill_validation/chemometrics/)."""
+    (the upstream validation suite)."""
 
     def __init__(self, steps, cfg=None):
         if isinstance(steps, str):

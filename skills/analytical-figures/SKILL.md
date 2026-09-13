@@ -13,12 +13,12 @@ description: >-
   LOQ, residuals, recovery, publication figure, journal figure; crystal structure,
   CIF, .cif, space group, hydrogen bond, displacement ellipsoid / ORTEP, packing
   diagram, calculated PXRD from a CIF, structure validation table.
-license: MIT
 compatibility: >-
   Python 3.10+ with numpy and matplotlib (scipy recommended). Runs offline; network access is
   used only by the optional scripts/sources.py lookups (Crystallography Open Database, PubChem)
   and needs no credentials. Chemometrics needs scikit-learn; the crystal family needs gemmi and
   Dans-Diffraction (pymatgen, pyvista optional).
+license: MIT
 metadata:
   version: "1.0"
   skill-author: Uri Baum
@@ -369,7 +369,7 @@ over "candidate calibrations" over "figures of merit") goes beyond one flat grid
   DD-SIMCA classifier** (`ddsimca_fit`/`ddsimca_predict`/`class_fom` — sensitivity/specificity/
   efficiency; the "is this the target phase?" call for cocrystal ID), **`emsc`** (EMSC
   scatter+baseline+interferents), and the **validation trio** (`permutation_test`,
-  `corrected_paired_t`, `rpd`/`rpiq`). All validated upstream (chemometrics suite, 100 checks).
+  `corrected_paired_t`, `rpd`/`rpiq`). All validated upstream against published reference values and reference implementations (100 checks).
 - `scripts/charts.py` — generic line/bar with anti-pattern guards.
 - `scripts/doe.py` — seeded, operator-balanced **run-order schedules** (operator orthogonal to
   concentration — fixes the operator/level confound) + CSV run sheet. Self-validates: `python
@@ -404,7 +404,7 @@ over "candidate calibrations" over "figures of merit") goes beyond one flat grid
   Database → CIF → `crystal_engine`) and `pubchem_properties` (PUG-REST identity/computed props) —
   both live-verified end-to-end. The full sourcing map —
   incl. the paywalled/manual ones — is `references/databases.md`. Pure URL/parse logic is gate-tested
-  (tested upstream); the network wrappers aren't.
+  (upstream test suite); the network wrappers aren't.
 - `scripts/cli.py` — scripts-first QC shortcuts: `spc-rsd` (.spc replicates → band area/%RSD) and
   `calibrate` (conc,signal CSV → slope/R²/LOD/LOQ). Convenience for routine checks; the report
   deliverable is still a written analysis, not CLI output.
